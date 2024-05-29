@@ -1,0 +1,6 @@
+Codigo     : 1
+Nombre     : Central
+Tipo Bodega: Mayoreo
+Direccion  : zona 1
+Estado     : Activa
+-----------------------------
