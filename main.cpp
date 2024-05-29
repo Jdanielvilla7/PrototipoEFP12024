@@ -5,16 +5,8 @@
 #include "usuarios.h"
 #include "Login.h"
 #include "Bitacora.h"
-#include "alumnos.h"
-#include "maestros.h"
-#include "Login_Alumno.h"
-#include "Carrera.h"
-#include "Facultad.h"
-#include "Cursoss.h"
-#include "AsigCursos_Alumnos.h"
-#include "jornada.h"
-#include "aulas.h"
-#include "secciones.h"
+#include "Bodega.h"
+
 
 using namespace std;
 
@@ -24,6 +16,8 @@ void reportes();
 void procesos();
 void ayuda();
 void seguridad();
+void imprimirRegistro( fstream& );
+
 string codigoPrograma="1";
 Bitacora Auditoria;
 string user, contrasena;
@@ -36,7 +30,7 @@ int main()
     // Creamos un bool que verifique y despliegue el metodo VerificarUsuario
     bool UsuarioCorrecto = ingreso.VerificarUsuario();
 
-    // Luego de ingresar con usuario y contraseña se nos despliega otro menu
+    // Luego de ingresar con usuario y contraseÃ±a se nos despliega otro menu
     if (UsuarioCorrecto)
     {
         menuGeneral();
@@ -71,9 +65,22 @@ void menuGeneral()
         case 1:
             catalogos();
             break;
-        case 2:
-            reportes();
+        case 2:{
+              // abrir el archivo en modo de lectura y escritura
+               fstream Bodega( "bodegas.dat", ios::in | ios::out | ios::binary);
+
+               // salir del programa si fstream no puede abrir el archivo
+               if ( !Bodega )
+                {
+                  cerr << "No se pudo abrir el archivo." << endl;
+                  system("pause");
+
+
+               }
+            imprimirRegistro(Bodega);
+
             break;
+        }
         case 3:
               {
                Bitacora Auditoria;
@@ -129,9 +136,50 @@ void catalogos()
 }
 
 
-void reportes()
+
+
+
+// crear archivo de texto con formato para imprimirlo
+void imprimirRegistro( fstream &leerDeArchivo )
 {
-    // Implementación de reportes
-}
+   // crear archivo de texto
+   ofstream archivoImprimirSalida( "imprimir.txt", ios::out );
+
+   // salir del programa si ofstream no puede crear el archivo
+   if ( !archivoImprimirSalida ) {
+      cerr << "No se pudo crear el archivo." << endl;
+      exit( 1 );
+
+   } // fin de instruccion if
+
+
+
+   // colocar el apuntador de posicion de archivo al principio del archivo de registros
+   leerDeArchivo.seekg( 0 );
+
+   // leer el primer registro del archivo de registros
+   Bodega bodega;
+   leerDeArchivo.read( reinterpret_cast< char * >( &bodega ),
+      sizeof( Bodega ) );
+
+   // copiar todos los registros del archivo de registros en el archivo de texto
+   while ( !leerDeArchivo.eof() ) {
+
+      // escribir un registro individual en el archivo de texto
+
+        archivoImprimirSalida<< "Codigo     : " << bodega.codigo << endl;
+        archivoImprimirSalida << "Nombre     : " << bodega.nombre << endl;
+        archivoImprimirSalida << "Tipo Bodega: " << bodega.tipobodega << endl;
+        archivoImprimirSalida << "Direccion  : " << bodega.direccion << endl;
+        archivoImprimirSalida << "Estado     : " << bodega.estado << endl;
+        archivoImprimirSalida << "-----------------------------" << endl;
+
+      // leer siguiente registro del archivo de registros
+      leerDeArchivo.read( reinterpret_cast< char * >( &bodega ),
+         sizeof( Bodega ) );
+
+   } // fin de instrucciï¿½n while
+
+} // fin de la funciï¿½n imprimirRegistro
 
 

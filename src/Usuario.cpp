@@ -1,9 +1,6 @@
-//Aqui se encuentra el archivos de implentación de la clase Bodega que contiene todo el codigo fuente
+//Aqui se encuentra el archivos de implentación de la clase CARRERA que contiene todo el codigo fuente
 //del funcionamiento del la clase
-#include "Bodega.h"
-#include "usuarios.h"
-#include "Login.h"
-#include "Bitacora.h"
+
 #include <fstream>
 #include <iostream>
 #include<stdlib.h>

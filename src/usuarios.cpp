@@ -2,7 +2,6 @@
 //Creado por Andre de Jesus 9959-23-3117
 
 #include "usuarios.h"
-#include "usualumnos.h"
 #include<fstream>
 #include<cstdlib>
 #include<conio.h>
@@ -10,7 +9,7 @@
 #define USER "usuario"
 #define PASS "1234"
 
-#include "usumaestros.h"
+
 
 using namespace std;
 

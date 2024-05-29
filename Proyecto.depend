@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1716998906 source:c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\src\bitacora.cpp
+	"Bitacora.h"
+	<iostream>
+	<fstream>
+	<conio.h>
+	<ctime>
+	<stdlib.h>
+	<iomanip>
+
+1716998906 c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\include\bitacora.h
+	<iostream>
+
+1717000295 source:c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\src\bodega.cpp
+	"Bodega.h"
+	"usuarios.h"
+	"Login.h"
+	"Bitacora.h"
+	<fstream>
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+
+1716998889 c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\include\bodega.h
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+
+1716998906 c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\include\usuarios.h
+	<iostream>
+
+1717000551 c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\include\login.h
+	<iostream>
+	<fstream>
+	<string>
+
+1717000539 source:c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\src\login.cpp
+	"Login.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	"Bitacora.h"
+
+1717000367 source:c:\users\bdg.josue.villagran\documents\umg\examenfinal\prototipoefp12024\main.cpp
+	<iostream>
+	<cstdlib>
+	<conio.h>
+	"usuarios.h"
+	"Login.h"
+	"Bitacora.h"
+	"Bodega.h"
+
